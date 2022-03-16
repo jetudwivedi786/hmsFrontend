@@ -61,7 +61,7 @@ const ShowRooms = () => {
 
                         <tr key={det.roomnumber} style={{ border: "2px solid gray", color: "white" }}>
 
-                            <td>{index}</td>
+                            <td>{index + 1}</td>
                             <td>{det.roomnumber}</td>
                             <td>{det.roomprice}</td>
                             <td>{det.roomtype}</td>

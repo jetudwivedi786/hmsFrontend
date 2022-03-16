@@ -7,15 +7,21 @@ import Home from './Component/Home';
 import About from './Component/About';
 import Receptionist from "./Component/ReceptionistService/Receptionist";
 import Owner from './Component/OwnerService/Owner';
-import ShowStaff from './Component/ManagerService/ShowStaff';
-import PostStaffData from './Component/ManagerService/PostStaffData';
-import Manager from './Component/ManagerService/Manager';
-import ShowRooms from './Component/ManagerService/Rooms/ShowRooms';
+import ShowStaff from './Component/ManagerService/Staff/ShowStaff';
 import PostRoom from './Component/ManagerService/Rooms/PostRoom';
-
+import PostStaffData from './Component/ManagerService/Staff/PostStaffData';
+import ShowRooms from './Component/ManagerService/Rooms/ShowRooms';
+import ShowInventory from './Component/ManagerService/Inventory/ShowInventory';
+import Manager from './Component/ManagerService/Manager';
+import PostInventry from './Component/ManagerService/Inventory/PostInventry';
+import ShowDepartments from './Component/OwnerService/ShowDepartments';
+import PostDepartment from './Component/OwnerService/PostDepartment';
+import ShowGuest from './Component/ReceptionistService/Guest/ShowGuest';
+import PostGuest from './Component/ReceptionistService/Guest/PostGuest';
 const App = () => {
     return (
         <>
+
             <Routes>
                 <Route path='/register' element={<Registration />} />
                 <Route exact path='/' element={<Home />} />
@@ -28,10 +34,12 @@ const App = () => {
                 <Route path='/login' element={<Login />} />
                 <Route path='/manager/getrooms' element={<ShowRooms />} />
                 <Route path='/manager/postrooms' element={<PostRoom />} />
-
-
-
-
+                <Route path='/manager/getInventory' element={<ShowInventory />} />
+                <Route path='/manager/postInventory' element={<PostInventry />} />
+                <Route path='/owner/getDepartments' element={<ShowDepartments />} />
+                <Route path='/owner/department' element={<PostDepartment />} />
+                <Route path='/receptionist/getGuest' element={<ShowGuest />} />
+                <Route path='/receptionist/postGuest' element={<PostGuest />} />
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
-import "../ManagerService/PostStaffData.css";
+import "../Staff/PostStaffData.css";
 
 const PostStaffData = () => {
     const [input, setInput] = useState({

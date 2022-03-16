@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Footer from '../HomePageComponents/Footer'
 import Header from '../HomePageComponents/Header'
 import Navbar from '../HomePageComponents/Navbar'
@@ -9,8 +10,37 @@ const Owner = () => {
             <Header />
             <Navbar />
 
-            <div style={{ width: "100%", backgroundColor: "green", height: "400px" }}><h1>this is Owner page</h1>this is main content</div>
+            <div style={{ width: "100%", backgroundColor: "#66a8b8", height: "400px", textAlign: "center" }}>
 
+                <h1 >Welcome to Owner page</h1><br /><hr />
+                <table style={{ width: "100%" }}>
+
+                    <tbody>
+                        <tr>
+
+                            <th><h1 class="animate__animated animate__slideInLeft">Departments</h1></th>
+
+
+                        </tr>
+                        <tr>
+
+                            <th><h4><Link to="/owner/getDepartments"> Show and Delete Departments</Link></h4></th>
+
+
+                        </tr>
+                        <tr>
+                            <th><h4><Link to="/owner/department"> Post and Update Departments</Link></h4></th>
+
+                        </tr>
+
+
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
             <Footer />
 
 

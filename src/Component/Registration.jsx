@@ -1,63 +1,126 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import axios from "axios"
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+
+
+import "./Login.css"
+
 
 const Registration = () => {
+
+    var auth = JSON.stringify(localStorage.getItem("auth"))
+    console.log("this is auth string :" + auth);
+
+    const nav = useNavigate();
+
+    const login = () => {
+        nav("/manager")
+    }
+    const reg = () => {
+        const path = "/registration"
+        nav(path)
+    }
+
+    const [input, setInput] = useState({
+        username: "",
+        password: "",
+
+
+
+    });
+
+
+    const inputEvent = (event) => {
+
+        const { name, value } = event.target;
+        setInput((previousvalue) => {
+            console.log(previousvalue.data);
+            return {
+                ...previousvalue,
+                [name]: value,
+            }
+
+
+
+        });
+    };
+    const showdata = (event) => {
+        event.preventDefault();
+
+        try {
+            axios.post("http://localhost:8080/subs", {
+                username: input.username,
+                password: input.password,
+
+            })
+                .then(response => {
+                    console.log(response.data.response);
+
+                    const a = localStorage.setItem("auth", JSON.stringify(response.data.response))
+                    nav("/login")
+
+
+
+
+
+
+
+                })
+
+
+        }
+        catch (error) {
+            console.log("error is", error)
+        };
+        // const auth = JSON.stringify(localStorage.getItem("auth"));
+        // console.log(auth)
+        // auth ? alert("success") : alert("fail")
+        // if (auth != null) {
+        //     alert("fail")
+        // }
+        // else {
+        //     alert("pass")
+        // }
+        // login();
+
+
+    }
+
+
+
     return (
+        <>
+            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "10%" }}>
+                <div class="row main-content bg-success text-center">
 
-        <div style={{ backgroundColor: "#a0bd7d", width: "50%", marginLeft: "25%" }}>
+                    <div >
+                        <div class="container-fluid">
+                            <div class="row">
+                                <h2 style={{ color: "wheat" }}>Registration here!</h2>
+                            </div>
+                            <div class="row">
+                                <form control="" class="form-group">
+                                    <div class="row">
+                                        <input type="text" name="username" id="username" placeholder='create username' onChange={inputEvent} value={input.username} required />                                    </div>
+                                    <div class="row">
+                                        <input type="text" name="password" id="password" placeholder='create password' onChange={inputEvent} value={input.password} required />                                    </div>
 
+                                    <div class="row">
+                                        <button style={{ backgroundColor: "#446511", color: "white" }} class="btn mt-1" type="submit" onClick={showdata}>Register</button>
+                                    </div>
+                                </form>
+                            </div>
 
-            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
-            <form class="mx-1 mx-md-4">
-
-                <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" placeholder='Type your Name' class="form-control" />
-                        <label class="form-label" for="form3Example1c">Your Name</label>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" placeholder='Enter Email' class="form-control" />
-                        <label class="form-label" for="form3Example3c">Your Email</label>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" placeholder='Type password' class="form-control" />
-                        <label class="form-label" for="form3Example4c">Password</label>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4cd" placeholder='Retype password' class="form-control" />
-                        <label class="form-label" for="form3Example4cd">Confirm password</label>
-                    </div>
-                </div>
-
-
-
-                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg rounded-circle">Register</button>
-                    <p style={{ marginLeft: "100px" }}><Link to="/" >Login?</Link>
-                    </p>
-                </div>
-
-
-            </form>
-
-        </div>
-
+        </>
 
     )
 }
 
-export default Registration
+export default Registration;

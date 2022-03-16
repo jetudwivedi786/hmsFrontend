@@ -50,7 +50,7 @@ const Login = () => {
         event.preventDefault();
 
         try {
-            axios.post("http://localhost:8090/auth", {
+            axios.post("http://localhost:8080/auth", {
                 username: input.username,
                 password: input.password,
 
