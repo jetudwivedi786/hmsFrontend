@@ -18,6 +18,9 @@ import ShowDepartments from './Component/OwnerService/ShowDepartments';
 import PostDepartment from './Component/OwnerService/PostDepartment';
 import ShowGuest from './Component/ReceptionistService/Guest/ShowGuest';
 import PostGuest from './Component/ReceptionistService/Guest/PostGuest';
+import AvalableRooms from './Component/ReceptionistService/Guest/AvalableRooms';
+import MakeReservation from './Component/ReceptionistService/Reservation/MakeReservation';
+import GetReservation from './Component/ReceptionistService/Reservation/GetReservation';
 const App = () => {
     return (
         <>
@@ -40,6 +43,10 @@ const App = () => {
                 <Route path='/owner/department' element={<PostDepartment />} />
                 <Route path='/receptionist/getGuest' element={<ShowGuest />} />
                 <Route path='/receptionist/postGuest' element={<PostGuest />} />
+                <Route path='/receptionist/availableRooms' element={<AvalableRooms />} />
+                <Route path='/receptionist/reservation' element={<MakeReservation />} />
+                <Route path='/receptionist/getReservation' element={<GetReservation />} />
+
 
 
 

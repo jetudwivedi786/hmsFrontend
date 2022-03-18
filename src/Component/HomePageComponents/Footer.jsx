@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
         <><footer class="panel-footer p-2 " style={{ backgroundColor: "#3e5563", color: "white" }}>
             <div class="container">
                 <div class="row">
+
                     <section id="hours" class="col-sm-4">
                         <span>Hours:</span><br />
                         Availability 24×7<br />
