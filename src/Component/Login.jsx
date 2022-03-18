@@ -6,9 +6,6 @@ import { useState } from 'react';
 
 
 import "./Login.css"
-import Header from './HomePageComponents/Header';
-import Footer from './HomePageComponents/Footer';
-import Navbar2 from './HomePageComponents/Navbar2';
 
 
 const Login = () => {
@@ -53,34 +50,24 @@ const Login = () => {
         event.preventDefault();
 
         try {
-            axios.post("http://localhost:8090/auth", {
+            axios.post("http://localhost:8080/auth", {
                 username: input.username,
                 password: input.password,
 
             })
                 .then(response => {
-                    console.log(response);
+                    console.log(response.data.response);
 
-                    localStorage.setItem("jwt", JSON.stringify(response.data.response))
-                    console.log(JSON.stringify(localStorage.getItem("jwt")))
-                    // localStorage.getItem("auth") ?  : null
-                    // if (JSON.stringify(localStorage.getItem("auth")) == "null") {
+                    const a = localStorage.setItem("auth", JSON.stringify(response.data.response))
                     nav("/manager")
-                    // }
-                    // else {
 
 
 
 
 
-                }, error => {
-                    alert("Fail");
-                    console.log(error);
+
+
                 })
-
-
-
-
 
 
         }
@@ -105,9 +92,7 @@ const Login = () => {
 
     return (
         <>
-            <Header />
-            <Navbar2 />
-            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "50px" }}>
+            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "10%" }}>
                 <div class="row main-content bg-success text-center">
                     <div class="col-md-4 text-center company__info">
                         <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
@@ -137,7 +122,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
 
         </>
 

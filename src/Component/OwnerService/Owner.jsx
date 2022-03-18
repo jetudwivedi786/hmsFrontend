@@ -24,12 +24,12 @@ const Owner = () => {
                         </tr>
                         <tr>
 
-                            <th><h4><Link to="/owner/getDepartments" style={{ textDecoration: "none", color: "green" }}> Show and Delete Departments</Link></h4></th>
+                            <th><h4><Link to="/owner/getDepartments"> Show and Delete Departments</Link></h4></th>
 
 
                         </tr>
                         <tr>
-                            <th><h4><Link to="/owner/department" style={{ textDecoration: "none", color: "green" }}> Post and Update Departments</Link></h4></th>
+                            <th><h4><Link to="/owner/department"> Post and Update Departments</Link></h4></th>
 
                         </tr>
 
