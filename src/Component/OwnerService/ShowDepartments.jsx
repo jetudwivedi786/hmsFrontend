@@ -63,7 +63,7 @@ const ShowDepartments = () => {
                                 Department Name:-{detail.departmentName},<br /><hr />
                                 No. Of Members:- {detail.noOfMember},<br /><hr />
 
-                                <center> <button onClick={() => { deleteDepartment(detail.id) }} style={{ backgroundColor: "black", color: "red" }} > Delete</button></center>
+                                <center> <button onClick={() => { deleteDepartment(detail.id) }} style={{ backgroundColor: "#d0e6f3", color: "red" }} > Delete</button></center>
 
                             </h5>
                             <div style={{ backgroundColor: "white", color: "red", height: "10px", borderRadius: "20px" }}>

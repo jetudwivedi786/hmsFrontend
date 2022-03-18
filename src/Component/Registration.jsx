@@ -1,37 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-
-
 import "./Login.css"
-
-
+import Header from './HomePageComponents/Header';
+import Footer from './HomePageComponents/Footer';
+import Navbar2 from './HomePageComponents/Navbar2';
 const Registration = () => {
 
     var auth = JSON.stringify(localStorage.getItem("auth"))
     console.log("this is auth string :" + auth);
 
     const nav = useNavigate();
-
-    const login = () => {
-        nav("/manager")
-    }
-    const reg = () => {
-        const path = "/registration"
-        nav(path)
-    }
-
     const [input, setInput] = useState({
         username: "",
         password: "",
 
-
-
     });
-
-
     const inputEvent = (event) => {
 
         const { name, value } = event.target;
@@ -41,16 +26,13 @@ const Registration = () => {
                 ...previousvalue,
                 [name]: value,
             }
-
-
-
         });
     };
     const showdata = (event) => {
         event.preventDefault();
 
         try {
-            axios.post("http://localhost:8080/subs", {
+            axios.post("http://localhost:8090/subs", {
                 username: input.username,
                 password: input.password,
 
@@ -61,38 +43,17 @@ const Registration = () => {
                     const a = localStorage.setItem("auth", JSON.stringify(response.data.response))
                     nav("/login")
 
-
-
-
-
-
-
                 })
-
-
         }
         catch (error) {
             console.log("error is", error)
         };
-        // const auth = JSON.stringify(localStorage.getItem("auth"));
-        // console.log(auth)
-        // auth ? alert("success") : alert("fail")
-        // if (auth != null) {
-        //     alert("fail")
-        // }
-        // else {
-        //     alert("pass")
-        // }
-        // login();
-
-
     }
-
-
-
     return (
         <>
-            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "10%" }}>
+            <Header />
+            <Navbar2 />
+            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "50px" }}>
                 <div class="row main-content bg-success text-center">
 
                     <div >
@@ -117,10 +78,10 @@ const Registration = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
 
         </>
 
     )
 }
-
 export default Registration;

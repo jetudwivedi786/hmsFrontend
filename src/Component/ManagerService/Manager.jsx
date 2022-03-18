@@ -23,16 +23,16 @@ const Manager = () => {
 
                         </tr>
                         <tr>
-                            <td><h5><Link to="/manager/getStaff">Show Staff and Manage</Link></h5></td>
-                            <td><Link to="/manager/getrooms"><h5>Show rooms and manage</h5></Link></td>
-                            <td><h5><Link to="/manager/getInventory">Show inventory and delete details</Link></h5></td>
+                            <td><h5><Link to="/manager/getStaff" style={{ textDecoration: "none", color: "green" }}>Show Staff and Manage</Link></h5></td>
+                            <td><Link to="/manager/getrooms" style={{ textDecoration: "none", color: "green" }}><h5>Show rooms and manage</h5></Link></td>
+                            <td><h5><Link to="/manager/getInventory" style={{ textDecoration: "none", color: "green" }}>Show inventory and delete details</Link></h5></td>
 
 
                         </tr>
                         <tr>
-                            <td><h5><Link to='/manager/poststaffdata'>Add and Delete Staff Data</Link></h5></td>
-                            <td><h5><Link to="/manager/postrooms">Add and update room</Link></h5> </td>
-                            <td><h5><Link to="/manager/postInventory">Add and Update inventry details</Link></h5></td>
+                            <td><h5><Link to='/manager/poststaffdata' style={{ textDecoration: "none", color: "green" }}>Add and Delete Staff Data</Link></h5></td>
+                            <td><h5><Link to="/manager/postrooms" style={{ textDecoration: "none", color: "green" }}>Add and update room</Link></h5> </td>
+                            <td><h5><Link to="/manager/postInventory" style={{ textDecoration: "none", color: "green" }}>Add and Update inventry details</Link></h5></td>
                         </tr>
 
                     </tbody>
