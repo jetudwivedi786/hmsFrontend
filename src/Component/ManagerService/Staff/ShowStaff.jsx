@@ -6,6 +6,8 @@ import axios from 'axios';
 const ShowStaff = () => {
 
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
 
   const getStaff = () => {
     // const res = await fetch("http://localhost:8093/manageStaff/get");
@@ -17,6 +19,8 @@ const ShowStaff = () => {
         .then(response => {
           console.log(response.data);
           setData(response.data)
+          setLoading(true);
+
         })
     }
     catch (error) {
@@ -60,7 +64,7 @@ const ShowStaff = () => {
 
       <div style={{ backgroundColor: "#62bef6", width: "90%", marginLeft: "5%" }}>
 
-        {data.map((detail, index) =>
+        {loading ? data.map((detail, index) =>
           <div key={detail.id}>
             <p style={{ color: "white" }}>
               <h5 style={{ padding: "2%", }}>Id: {detail.id}<br /><hr />
@@ -95,7 +99,9 @@ const ShowStaff = () => {
           </div>
 
 
-        )}
+        ) : <center><div class="spinner-border text-danger" role="status">
+          <span class="sr-only"></span>
+        </div></center>}
       </div>
 
     </div>

@@ -18,17 +18,12 @@ const Login = () => {
 
     const nav = useNavigate();
 
-    const login = () => {
-        nav("/manager")
-    }
-    const reg = () => {
-        const path = "/registration"
-        nav(path)
-    }
+
 
     const [input, setInput] = useState({
         username: "",
         password: "",
+        role: "",
 
 
 
@@ -56,25 +51,45 @@ const Login = () => {
             axios.post("http://localhost:8090/auth", {
                 username: input.username,
                 password: input.password,
+                role: input.role,
 
             })
                 .then(response => {
                     console.log(response);
 
                     localStorage.setItem("jwt", JSON.stringify(response.data.response))
+                    localStorage.setItem("role", JSON.stringify(response.data.role))
+
                     console.log(JSON.stringify(localStorage.getItem("jwt")))
+                    console.log(response.data.role)
+                    setInput({ ...input, role: response.data.role })
+
+                    if (input.role === "[owner]") {
+                        nav("/owner ")
+                    }
+                    if (input.role === "[manager]") {
+                        nav("/manager ")
+                    }
+                    if (input.role === "[receptionist]") {
+                        nav("/receptionist ")
+                    }
+
+
                     // localStorage.getItem("auth") ?  : null
-                    // if (JSON.stringify(localStorage.getItem("auth")) == "null") {
-                    nav("/manager")
-                    // }
-                    // else {
+
+
+
+
+
+
+
 
 
 
 
 
                 }, error => {
-                    alert("Fail");
+                    alert("try with valid credential");
                     console.log(error);
                 })
 
@@ -111,7 +126,7 @@ const Login = () => {
                 <div class="row main-content bg-success text-center">
                     <div class="col-md-4 text-center company__info">
                         <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
-                        <h4 class="company_title"><img src='./images/logo.png' style={{ width: "100px", borderRadius: "10px" }} /></h4>
+                        <h4 class="company_title"><img src='./images/logo.png' alt='logo ' style={{ width: "100px", borderRadius: "10px" }} /></h4>
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                         <div class="container-fluid">
@@ -123,7 +138,7 @@ const Login = () => {
                                     <div class="row">
                                         <input type="text" name="username" id="username" placeholder='username' onChange={inputEvent} value={input.username} required />                                    </div>
                                     <div class="row">
-                                        <input type="text" name="password" id="password" placeholder='password' onChange={inputEvent} value={input.password} required />                                    </div>
+                                        <input type="password" name="password" id="password" placeholder='password' onChange={inputEvent} value={input.password} required />                                    </div>
 
                                     <div class="row">
                                         <button style={{ backgroundColor: "#446511", color: "white" }} class="btn mt-1" type="submit" onClick={showdata}>Login</button>

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import Footer from '../HomePageComponents/Footer'
 import Header from '../HomePageComponents/Header'
 import Navbar from '../HomePageComponents/Navbar'
+import ReceptionistNav from '../HomePageComponents/ReceptionistNav'
 
 const Receptionist = () => {
     return (
         <>
             <Header />
-            <Navbar />
+            <ReceptionistNav />
 
             <div style={{ width: "100%", backgroundColor: "#66a8b8", height: "400px", textAlign: "center", }}>
 

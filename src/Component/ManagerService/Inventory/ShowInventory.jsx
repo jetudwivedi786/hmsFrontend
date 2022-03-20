@@ -6,6 +6,8 @@ import { Table } from 'react-bootstrap'
 const ShowInventory = () => {
 
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
 
     const getInventory = () => {
 
@@ -14,6 +16,7 @@ const ShowInventory = () => {
                 .then(response => {
                     console.log(response.data);
                     setData(response.data)
+                    setLoading(true);
                 })
         }
         catch (error) {
@@ -66,7 +69,7 @@ const ShowInventory = () => {
                         <td >Operation</td>
                     </tr>
 
-                    {data.map((det, index) =>
+                    {loading ? data.map((det, index) =>
                         <tr key={det.id} style={{ color: "white" }}>
                             <td>{index + 1}</td>
                             <td>{det.id}</td>
@@ -79,7 +82,9 @@ const ShowInventory = () => {
                             <td><button className='btnn' onClick={() => deleteInventory(det.id)} >Delete</button></td>
 
 
-                        </tr >)}
+                        </tr >) : <center><div class="spinner-border text-danger" role="status">
+                            <span class="sr-only"></span>
+                        </div></center>}
 
 
                 </Table >

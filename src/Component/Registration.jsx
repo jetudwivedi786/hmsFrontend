@@ -15,6 +15,7 @@ const Registration = () => {
     const [input, setInput] = useState({
         username: "",
         password: "",
+        role: ""
 
     });
     const inputEvent = (event) => {
@@ -35,12 +36,13 @@ const Registration = () => {
             axios.post("http://localhost:8090/subs", {
                 username: input.username,
                 password: input.password,
+                role: input.role,
 
             })
                 .then(response => {
                     console.log(response.data.response);
 
-                    const a = localStorage.setItem("auth", JSON.stringify(response.data.response))
+                    localStorage.setItem("auth", JSON.stringify(response.data.response))
                     nav("/login")
 
                 })
@@ -66,7 +68,9 @@ const Registration = () => {
                                     <div class="row">
                                         <input type="text" name="username" id="username" placeholder='create username' onChange={inputEvent} value={input.username} required />                                    </div>
                                     <div class="row">
-                                        <input type="text" name="password" id="password" placeholder='create password' onChange={inputEvent} value={input.password} required />                                    </div>
+                                        <input type="password" name="password" id="password" placeholder='create password' onChange={inputEvent} value={input.password} required />                                    </div>
+                                    <div class="row">
+                                        <input type="text" name="role" id="role" placeholder='create role' onChange={inputEvent} value={input.role} required />                                    </div>
 
                                     <div class="row">
                                         <button style={{ backgroundColor: "#446511", color: "white" }} class="btn mt-1" type="submit" onClick={showdata}>Register</button>

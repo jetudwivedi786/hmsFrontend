@@ -2,8 +2,13 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+
+
+
 const ShowDepartments = () => {
+
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const getDepartment = () => {
 
@@ -13,6 +18,7 @@ const ShowDepartments = () => {
                 .then(response => {
                     console.log(response.data);
                     setData(response.data)
+                    setLoading(true);
                 })
         }
         catch (error) {
@@ -30,6 +36,7 @@ const ShowDepartments = () => {
                         console.log(response);
                         getDepartment();
 
+
                     })) { alert("Department id " + id + " is deleted") }
         }
         catch (error) {
@@ -40,22 +47,27 @@ const ShowDepartments = () => {
 
 
     useEffect(() => {
-        getDepartment();
 
+        getDepartment();
 
 
     }, []);
     return (
+
         <div style={{ backgroundColor: "#d0e6f3" }}>
+
+            {/* {loading ? data : <center> <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div></center>} */}
             <div>
                 <center> <h1>All the Department details is below</h1></center><hr />
             </div>
 
-            <div></div>
+
 
             <div style={{ backgroundColor: "#62bef6", width: "90%", marginLeft: "5%" }}>
 
-                {data.map((detail, index) =>
+                {loading ? data.map((detail, index) =>
                     <div key={detail.id}>
                         <p style={{ color: "white" }}>
                             <h5 style={{ padding: "2%", }}>Index: {index + 1}<br /><hr />
@@ -75,7 +87,9 @@ const ShowDepartments = () => {
                     </div>
 
 
-                )}
+                ) : <center><div class="spinner-border text-danger" role="status">
+                    <span class="sr-only"></span>
+                </div></center>}:
             </div>
 
         </div>

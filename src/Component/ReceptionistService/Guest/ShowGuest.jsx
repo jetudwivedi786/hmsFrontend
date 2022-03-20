@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const ShowGuest = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const getGuest = () => {
 
@@ -13,6 +14,7 @@ const ShowGuest = () => {
                 .then(response => {
                     console.log(response.data);
                     setData(response.data)
+                    setLoading(true)
                 })
         }
         catch (error) {
@@ -64,7 +66,7 @@ const ShowGuest = () => {
 
 
 
-                    {data.map((det, index) =>
+                    {loading ? data.map((det, index) =>
 
                         <tr key={det.id} style={{ border: "2px solid gray", color: "white" }}>
 
@@ -87,7 +89,9 @@ const ShowGuest = () => {
 
 
 
-                    )}
+                    ) : <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only"></span>
+                    </div>}
 
 
 
