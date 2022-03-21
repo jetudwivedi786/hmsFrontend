@@ -75,26 +75,11 @@ const Login = () => {
                     }
 
 
-                    // localStorage.getItem("auth") ?  : null
-
-
-
-
-
-
-
-
-
-
-
 
                 }, error => {
                     alert("try with valid credential");
                     console.log(error);
                 })
-
-
-
 
 
 

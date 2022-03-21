@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../HomePageComponents/Footer'
 import Header from '../HomePageComponents/Header'
-import ManagerNav from '../HomePageComponents/ManagerNav'
+import ManagerNav from "../HomePageComponents/ManagerNav"
 const Manager = () => {
     return (
         <>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Header from '../HomePageComponents/Header'
+import Navbar from '../HomePageComponents/Navbar'
 
 const PostDepartment = () => {
     const [input, setInput] = useState({
@@ -71,6 +73,8 @@ const PostDepartment = () => {
 
     return (
         <>
+            <Header />
+            <Navbar />
             <div class="text-center mt-4 name"> <h1>Post and Update Department</h1></div>
             <div class="wrapper">
                 <div class="text-center mt-4 name"> Add/Update </div>

@@ -36,7 +36,7 @@ const ManagerNav = () => {
                         <div class="nav navbar-right" >
 
                             {localStorage.getItem("jwt") && (<ul class="navbar-nav  mb-2 mb-lg-0"> <li className="nav-item">
-                                <LogoutIcon onClick={Logout} style={{ color: "white", cursor: "pointer" }} /></li></ul>)}
+                                <h6 onClick={Logout} style={{ color: "white", cursor: "pointer" }} >Logout </h6></li></ul>)}
 
                         </div>
                     </div>

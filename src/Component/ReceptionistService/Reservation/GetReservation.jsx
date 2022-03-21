@@ -1,6 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../../HomePageComponents/Header';
+import ReceptionistNav from '../../HomePageComponents/ReceptionistNav';
 
 
 const GetReservation = () => {
@@ -8,7 +10,6 @@ const GetReservation = () => {
     const [loading, setLoading] = useState(false);
     const [pay, setPay] = useState([]);
     var paymentprint;
-
 
     const getpayGuest = () => {
         try {
@@ -69,6 +70,8 @@ const GetReservation = () => {
 
     return (
         <>
+            <Header />
+            <ReceptionistNav />
             <center><h1>All Guests information is here</h1></center><hr />
             <div style={{ backgroundColor: "#552f2f", width: "100%" }}>
                 <table class="table table-white" style={{ textAlign: "center" }}>
@@ -81,7 +84,6 @@ const GetReservation = () => {
                         <td><h5> checkInDate</h5></td>
                         <td><h5>checkOutDate</h5></td>
                         <td><h5>status</h5></td>
-                        <td><h5>numberOfNight</h5></td>
 
                         <td><h5>Payment</h5></td>
                         <td><h5>Operation</h5></td>
@@ -96,7 +98,7 @@ const GetReservation = () => {
 
                     {loading ? data.map((det, index) =>
 
-                        <tr key={det.id} style={{ border: "2px solid gray", color: "white" }}>
+                        <tr key={det.id} style={{ borderBottom: "5px solid #917575", color: "white", height: "200px", width: "120%" }}>
                             {/* {det.paymentDetails.orderId} */}
                             <td>{index + 1}</td>
                             <td>{det.roomNo}</td>
@@ -105,10 +107,8 @@ const GetReservation = () => {
                             <td>{det.checkInDate}</td>
                             <td>{det.checkOutDate}</td>
                             <td>{det.status}</td>
-                            <td>{det.numberOfNight}</td>
-                            <td>{det.paymentDetails.paymentStatus},{det.paymentDetails.txId}</td>
+                            <td style={{ width: "300px", height: "200px", backgroundColor: "#725959" }}>Payment-Status:{det.paymentDetails.paymentStatus}<br />amount:{det.paymentDetails.amount}<br />TxId:{det.paymentDetails.txId}</td>
                             <td><button onClick={() => deleteGuest(det.roomNo)} style={{ color: "red", backgroundColor: "black" }}>delete</button></td>
-
                             {/* <td style={{ color: "green" }}>{det.paymentDetails.orderId}</td> */}
                             {/* <tr>
 

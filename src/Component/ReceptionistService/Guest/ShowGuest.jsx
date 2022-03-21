@@ -1,6 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../../HomePageComponents/Header';
+import ReceptionistNav from '../../HomePageComponents/ReceptionistNav';
 
 
 const ShowGuest = () => {
@@ -46,6 +48,8 @@ const ShowGuest = () => {
 
     return (
         <>
+            <Header />
+            <ReceptionistNav />
             <center><h1>All Guests information is here</h1></center><hr />
             <div style={{ backgroundColor: "#552f2f", width: "90%", marginLeft: "4%" }}>
                 <table class="table table-white" style={{ textAlign: "center" }}>

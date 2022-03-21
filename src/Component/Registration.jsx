@@ -43,7 +43,7 @@ const Registration = () => {
                     console.log(response.data.response);
 
                     localStorage.setItem("auth", JSON.stringify(response.data.response))
-                    nav("/login")
+                    nav("/")
 
                 })
         }
@@ -69,9 +69,21 @@ const Registration = () => {
                                         <input type="text" name="username" id="username" placeholder='create username' onChange={inputEvent} value={input.username} required />                                    </div>
                                     <div class="row">
                                         <input type="password" name="password" id="password" placeholder='create password' onChange={inputEvent} value={input.password} required />                                    </div>
+                                    {/* <div class="row">
+                                        <input type="text" name="role" id="role" placeholder='create role' onChange={inputEvent} value={input.role} required />                                    </div> */}
                                     <div class="row">
-                                        <input type="text" name="role" id="role" placeholder='create role' onChange={inputEvent} value={input.role} required />                                    </div>
+                                        <select name="role" id="role" value={input.role} onChange={inputEvent}  >
 
+                                            <option value="NA">Select Role</option>
+
+                                            <option value="owner">owner</option>
+
+                                            <option value="manager">manager</option>
+
+                                            <option value="receptionist">receptionist</option>
+
+                                        </select>
+                                    </div>
                                     <div class="row">
                                         <button style={{ backgroundColor: "#446511", color: "white" }} class="btn mt-1" type="submit" onClick={showdata}>Register</button>
                                     </div>

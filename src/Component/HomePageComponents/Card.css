@@ -1,0 +1,16 @@
+.cards{
+    float: left;
+    background-color: wheat;
+    width: 270px;
+    box-shadow: 2px 4px 5px rgb(138, 135, 135);
+    margin-top: 50px;
+    margin-left: 45px;
+    padding: 10px;
+
+   
+   
+}
+
+.card_info{
+    float: left;
+}

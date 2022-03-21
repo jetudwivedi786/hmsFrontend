@@ -24,6 +24,7 @@ const Navbar = () => {
                                     <Link to="/owner" class="nav-link active">Owner</Link>
                                 </li>
 
+
                                 <li class="nav-item">
                                     <Link class="nav-link active " to='/about' tabindex="-1" >About</Link>
                                 </li>
@@ -37,7 +38,7 @@ const Navbar = () => {
                         <div class="nav navbar-right" >
 
                             {localStorage.getItem("jwt") && (<ul class="navbar-nav  mb-2 mb-lg-0"> <li className="nav-item">
-                                <LogoutIcon onClick={Logout} style={{ color: "white", cursor: "pointer" }} /></li></ul>)}
+                                <h6 onClick={Logout} style={{ color: "white", cursor: "pointer" }} >Logout </h6></li></ul>)}
 
                         </div>
                     </div>

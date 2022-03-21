@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { Table } from 'react-bootstrap'
+import Header from '../../HomePageComponents/Header'
+import ManagerNav from '../../HomePageComponents/ManagerNav'
 
 const ShowInventory = () => {
 
@@ -51,6 +53,8 @@ const ShowInventory = () => {
     return (
 
         <>
+            <Header />
+            <ManagerNav />
             <div id='main' >
 
                 <center> <h1 style={{ color: "white" }}>All the Inventory details are here !</h1></center>

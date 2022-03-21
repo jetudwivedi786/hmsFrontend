@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
+import Header from '../../HomePageComponents/Header'
+import ReceptionistNav from '../../HomePageComponents/ReceptionistNav'
 
 const MakeReservation = () => {
+    const nav = useNavigate();
 
     const [input, setInput] = useState({
         "roomNo": "",
@@ -49,6 +53,7 @@ const MakeReservation = () => {
                 })
                     .then(response => {
                         console.log(response);
+                        nav("/receptionist/getReservation")
 
                     })) { alert("Data updated") }
         }
@@ -62,6 +67,8 @@ const MakeReservation = () => {
 
     return (
         <>
+            <Header />
+            <ReceptionistNav />
 
             <div class="text-center mt-4 name"> <h1>Make  and Update Reservation</h1></div>
 
@@ -77,9 +84,8 @@ const MakeReservation = () => {
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="date" name="checkInDate" id="checkInDate" placeholder='checkInDate' onChange={inputEvent} value={input.checkInDate} /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="date" name="checkOutDate" id="checkOutDate" placeholder='checkOutDate' onChange={inputEvent} value={input.checkOutDate} /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="status" id="status" placeholder='status' onChange={inputEvent} value={input.status} /> </div>
-                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="numberOfNight" id="numberOfNight" placeholder='numberOfNight' onChange={inputEvent} value={input.numberOfNight} /> </div>
                     {/* <button class="btn mt-1" type="submit" onClick={showdata}>Post</button> */}
-                    {((input.numberOfNight) && (input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
+                    {((input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
                         <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/payment" target="_new">Click here Payment </a> : <a href="http://localhost:3000/payment" target="_new">Click here Payment </a>}
 
                     <button class="btn mt-1" type='submit' onClick={updatedata} >Add Reservation</button>
