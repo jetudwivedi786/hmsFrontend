@@ -18,7 +18,7 @@ const Owner = () => {
                     <tbody>
                         <tr>
 
-                            <th><h1 class="animate__animated animate__slideInLeft">Departments</h1></th>
+                            <th><h1 class="animate__animated animate__slideInLeft">Departments</h1><hr /></th>
 
 
                         </tr>
@@ -34,7 +34,7 @@ const Owner = () => {
                         </tr>
                         <tr>
 
-                            <th><h1 class="animate__animated animate__slideInLeft">All Report</h1></th>
+                            <th><h1 class="animate__animated animate__slideInLeft">All Report</h1><hr /></th>
 
 
                         </tr>

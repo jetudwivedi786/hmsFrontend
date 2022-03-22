@@ -77,7 +77,7 @@ const MakeReservation = () => {
 
             <div class="wrapper">
                 <div class="text-center mt-4 name"> Make/Update </div>
-                <form class="p-3 mt-3">
+                <form class="p-1 mt-3">
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="roomNo" id="roomNo" placeholder='roomNo' onChange={inputEvent} value={input.roomNo} /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="noOfChildren" id="noOfChildren" placeholder=' noOfChildren' onChange={inputEvent} value={input.noOfChildren} /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="noOfAdult" id="noOfAdult" placeholder='noOfAdult' onChange={inputEvent} value={input.noOfAdult} /> </div>

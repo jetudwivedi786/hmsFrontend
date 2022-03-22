@@ -6,6 +6,7 @@ import "./Login.css"
 import Header from './HomePageComponents/Header';
 import Footer from './HomePageComponents/Footer';
 import Navbar2 from './HomePageComponents/Navbar2';
+import Background from "../../src/1.jpg"
 const Registration = () => {
 
     var auth = JSON.stringify(localStorage.getItem("auth"))
@@ -55,16 +56,16 @@ const Registration = () => {
         <>
             <Header />
             <Navbar2 />
-            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "50px" }}>
+            <div class="container-fluid" style={{ backgroundImage: `url(${Background})`, paddingLeft: "500px", paddingTop: "100px", paddingBottom: "100px" }}>
                 <div class="row main-content bg-success text-center">
 
-                    <div >
+                    <div style={{ backgroundColor: "#5b5ac7", borderRadius: "20px" }} >
                         <div class="container-fluid">
                             <div class="row">
                                 <h2 style={{ color: "wheat" }}>Registration here!</h2>
                             </div>
                             <div class="row">
-                                <form control="" class="form-group">
+                                <form control="" class="form-group" >
                                     <div class="row">
                                         <input type="text" name="username" id="username" placeholder='create username' onChange={inputEvent} value={input.username} required />                                    </div>
                                     <div class="row">

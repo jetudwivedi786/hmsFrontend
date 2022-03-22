@@ -99,7 +99,7 @@ const PostGuest = () => {
             {/* Basic form here */}
 
 
-            <div class="wrapper">
+            <div class="wrapper" >
                 <div class="text-center mt-4 name"> Add/Update </div>
                 <form class="p-3 mt-3">
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="id" id="id" placeholder='id' onChange={inputEvent} value={input.id} required /> </div>

@@ -9,6 +9,8 @@ import "./Login.css"
 import Header from './HomePageComponents/Header';
 import Footer from './HomePageComponents/Footer';
 import Navbar2 from './HomePageComponents/Navbar2';
+import Background from "../../src/1.jpg"
+
 
 
 const Login = () => {
@@ -101,19 +103,17 @@ const Login = () => {
 
     }
 
-
-
     return (
         <>
             <Header />
             <Navbar2 />
-            <div class="container-fluid" style={{ paddingLeft: "30%", marginTop: "50px" }}>
+            <div class="container-fluid" style={{ paddingLeft: "500px", paddingTop: "100px", paddingBottom: "100px", backgroundImage: `url(${Background})` }}>
                 <div class="row main-content bg-success text-center">
                     <div class="col-md-4 text-center company__info">
                         <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
                         <h4 class="company_title"><img src='./images/logo.png' alt='logo ' style={{ width: "100px", borderRadius: "10px" }} /></h4>
                     </div>
-                    <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                    <div class="col-md-8 col-xs-12 col-sm-12 login_form " style={{ backgroundColor: "blueviolet" }}>
                         <div class="container-fluid">
                             <div class="row">
                                 <h2>Log In</h2>
@@ -131,7 +131,7 @@ const Login = () => {
                                 </form>
                             </div>
                             <div class="row">
-                                <p>Don't have an account? <Link to="/register">Register Here</Link></p>
+                                <p>Account? <Link to="/register" style={{ textDecoration: "none", color: "#f0ec29" }}>Register</Link></p>
                             </div>
                         </div>
                     </div>
