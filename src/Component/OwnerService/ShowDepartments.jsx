@@ -77,7 +77,7 @@ const ShowDepartments = () => {
                                 <h6 className='card_category'>  Department Id:- {detail.id}</h6>
                                 <h6 className='card_category'>  Department Id:- {detail.departmentName}</h6>
                                 <h6 className='card_category'>  Department Id:- {detail.noOfMember}</h6>
-                                <center> <button onClick={() => { deleteDepartment(detail.id) }} style={{ backgroundColor: "black", color: "red" }} > Delete</button></center>
+                                <center> <button onClick={() => { deleteDepartment(detail.id) }} style={{ backgroundColor: "#dbd596", color: "red" }} > Delete</button></center>
 
                             </div   >
 

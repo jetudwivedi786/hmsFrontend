@@ -38,7 +38,10 @@ const MakeReservation = () => {
     };
     const updatedata = (event) => {
         event.preventDefault();
-        console.log(input)
+        console.log(input);
+        const a = JSON.parse(localStorage.getItem("paydata"))
+        console.log(a)
+
         try {
             if (
                 axios.post("/reservation/addReservation", {
@@ -49,6 +52,7 @@ const MakeReservation = () => {
                     checkOutDate: input.checkOutDate,
                     status: input.status,
                     numberOfNight: input.numberOfNight,
+                    // paymentDetails:{orderId,amount,paymentStatus,txId}
 
                 })
                     .then(response => {
@@ -86,10 +90,14 @@ const MakeReservation = () => {
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="status" id="status" placeholder='status' onChange={inputEvent} value={input.status} /> </div>
                     {/* <button class="btn mt-1" type="submit" onClick={showdata}>Post</button> */}
                     {((input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
-                        <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/payment" target="_new">Click here Payment </a> : <a href="http://localhost:3000/payment" target="_new">Click here Payment </a>}
+                        <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/payment" target="_new">Click here for dummy Payment </a> : <a href="http://localhost:3000/payment" target="_new">Click here for dummy Payment </a>}
+                    a <h6>or</h6>
+                    {((input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
+                        <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/razorpay" target="_new">Pay With Razorpay </a> : <a href="http://localhost:3000/razorpay" target="_new">Pay With Razorpay </a>}
+
+                    {/* <Link to="/razorpay"><h6>Pay with razorpay</h6></Link> */}
 
                     <button class="btn mt-1" type='submit' onClick={updatedata} >Add Reservation</button>
-                    <Link to="/razorpay"><h6>Pay with razorpay</h6></Link>
 
 
                 </form>

@@ -8,20 +8,49 @@ const RazorPay = () => {
 
 
     const [data, setData] = useState();
+    const [display, setDisplay] = useState([])
     const nav = useNavigate();
-    const [input, setInput] = useState({
-        "amount": "",
+    const [change, setChange] = useState({
+        amount: "",
+        orderId: "",
+        paymentStatus: "",
+        txId: "",
 
 
 
     })
 
+    const addpay = (pass) => {
+        // pass.preventDefault();
 
+        try {
+            if (
+                axios.post("http://localhost:8089/pay/addpayment", pass
+
+                )
+                    .then(response => {
+                        console.log(response.data);
+
+
+
+
+                    })) { alert(change.amount + "Check Payment status with your order Id") }
+        }
+        catch (error) {
+            console.log("error is", error)
+        };
+
+    }
+
+    const { amount,
+        orderId,
+        paymentStatus,
+        txId } = change;
     const inputEvent = (e) => {
         console.log(e.target.value)
         const { name, value } = e.target
         setData(e.target.value)
-        setInput((prev) => {
+        setChange((prev) => {
             return {
                 ...prev,
                 [name]: value,
@@ -30,20 +59,30 @@ const RazorPay = () => {
         })
 
     }
+
+    const simplemethod = (response) => {
+        setChange({ ...change, paymentStatus: "success", txId: response.razorpay_payment_id })
+        console.log(response.razorpay_payment_id)
+        // let id = response.razorpay_payment_id;
+        // setInput({ ...input, });
+        addpay(change);
+        console.log(change)
+    }
     const addData = (event) => {
         event.preventDefault();
         console.log(data)
 
         if (
             axios.post("http://localhost:5000/payment/create_order", {
-                amount: input.amount,
+                amount: change.amount,
 
             })
                 .then(response => {
                     console.log(response.data);
                     // setDisplay(response.data)
+                    // console.log(localStorage.getItem("paydata"))
+                    // console.log(setDisplay)
 
-                    console.log(response.data.id)
 
                     var options = {
                         "key": "rzp_test_qbRIP8bhRC3wZa", // Enter the Key ID generated from the Dashboard
@@ -55,6 +94,11 @@ const RazorPay = () => {
                         "order_id": response.data.id,
                         "handler": function (response) {
                             console.log(response);
+                            localStorage.setItem("paydata", JSON.stringify(response))
+                            setDisplay((localStorage.getItem("paydata")))
+                            simplemethod(response);
+
+
 
                         },
                         "prefill": {
@@ -84,6 +128,7 @@ const RazorPay = () => {
         script.src = "https://checkout.razorpay.com/v1/checkout.js";
         script.async = true;
         document.body.appendChild(script);
+
     }, []);
 
 
@@ -93,12 +138,15 @@ const RazorPay = () => {
             <div class="wrapper">
                 <div class="text-center mt-4 name"> Enter details </div>
                 <form class="p-3 mt-3">
-                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="amount" id="amount" placeholder=' amount' onChange={inputEvent} value={input.amount} required /> </div>
+                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="orderId" id="orderId" placeholder=' orderId' onChange={inputEvent} value={change.orderId} required /> </div>
+
+                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="amount" id="amount" placeholder=' amount' onChange={inputEvent} value={change.amount} required /> </div>
                     <h1></h1>
 
                     <button class="btn mt-1" type="submit" onClick={addData} >pay({data})</button>
                 </form>
             </div>
+            <div>{display}</div>
 
         </>
     )

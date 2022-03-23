@@ -67,7 +67,7 @@ const ShowRooms = () => {
                                 <h6 className='card_category'>  Room status:- {det.roomtype}</h6>
                                 <h6 className='card_category'> Room status:-{det.roomstatus}</h6>
 
-                                <center> <button onClick={() => { deleteroom(det.id) }} style={{ backgroundColor: "black", color: "red" }} > Delete</button></center>
+                                <center> <button onClick={() => { deleteroom(det.id) }} style={{ backgroundColor: "#dbd596", color: "red" }} > Delete</button></center>
 
                             </div   >
 
