@@ -26,9 +26,6 @@ const Receptionist = () => {
                         <h4><Link to="/receptionist/getGuest" style={{ textDecoration: "none", color: "green" }}> Show and Delete Guests</Link></h4>
                         <h4><Link to="/receptionist/postGuest" style={{ textDecoration: "none", color: "green" }}> Post and Update Guests</Link></h4>
 
-
-
-
                     </div>
                     <div style={{ float: "left", width: "33%" }}>
                         <center><h1 class="animate__animated animate__zoomIn"> Available room</h1></center>

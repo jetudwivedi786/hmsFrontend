@@ -24,37 +24,45 @@ import GetReservation from './Component/ReceptionistService/Reservation/GetReser
 import ErrorPage from './Component/ErrorPage';
 import Payment from './Component/Payment/Payment';
 import Report from './Component/OwnerService/Report';
+import { useNavigate } from 'react-router-dom';
+import RazorPay from './Component/Payment/RazorPay';
 const App = () => {
+    const nav = useNavigate();
+
+
     return (
         <>
 
 
 
             <Routes>
+                {/* {localStorage.getItem("jwt") ? <Route exact path='/owner' element={<Owner />} /> : null} */}
+
                 <Route exact path='/error' element={<ErrorPage />} />
                 <Route exact path='/register' element={<Registration />} />
-                <Route exact path='/home' element={<Home />} />
-                <Route path='/owner' element={<Owner />} />
-                <Route path='/receptionist' element={<Receptionist />} />
+                {localStorage.getItem("jwt") ? <Route exact path='/home' element={<Home />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/owner' element={<Owner />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/receptionist' element={<Receptionist />} /> : null}
                 <Route path='/about' element={<About />} />
                 <Route path='/manager' element={<Manager />} />
-                <Route path='/manager/getStaff' element={<ShowStaff />} />
-                <Route path='/manager/poststaffdata' element={<PostStaffData />} />
+                {localStorage.getItem("jwt") ? <Route path='/manager/getStaff' element={<ShowStaff />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/manager/poststaffdata' element={<PostStaffData />} /> : null}
                 <Route path='/' element={<Login />} />
-                <Route path='/manager/getrooms' element={<ShowRooms />} />
-                <Route path='/manager/postrooms' element={<PostRoom />} />
-                <Route path='/manager/getInventory' element={<ShowInventory />} />
+                {localStorage.getItem("jwt") ? <Route path='/manager/getrooms' element={<ShowRooms />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/manager/postrooms' element={<PostRoom />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/manager/getInventory' element={<ShowInventory />} /> : null}
 
-                <Route path='/manager/postInventory' element={<PostInventry />} />
-                <Route path='/owner/getDepartments' element={<ShowDepartments />} />
-                <Route path='/owner/department' element={<PostDepartment />} />
-                <Route path='/receptionist/getGuest' element={<ShowGuest />} />
-                <Route path='/receptionist/postGuest' element={<PostGuest />} />
-                <Route path='/receptionist/availableRooms' element={<AvalableRooms />} />
-                <Route path='/receptionist/reservation' element={<MakeReservation />} />
-                <Route path='/receptionist/getReservation' element={<GetReservation />} />
+                {localStorage.getItem("jwt") ? <Route path='/manager/postInventory' element={<PostInventry />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/owner/getDepartments' element={<ShowDepartments />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/owner/department' element={<PostDepartment />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/receptionist/getGuest' element={<ShowGuest />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/receptionist/postGuest' element={<PostGuest />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/receptionist/availableRooms' element={<AvalableRooms />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/receptionist/reservation' element={<MakeReservation />} /> : null}
+                {localStorage.getItem("jwt") ? <Route path='/receptionist/getReservation' element={<GetReservation />} /> : null}
                 <Route path='/payment' element={<Payment />} />
-                <Route exact path='/owner/report' element={<Report />} />
+                {localStorage.getItem("jwt") ? <Route exact path='/owner/report' element={<Report />} /> : null}
+                <Route path='/razorpay' element={<RazorPay />} />
 
 
 

@@ -56,7 +56,7 @@ const Registration = () => {
         <>
             <Header />
             <Navbar2 />
-            <div class="container-fluid" style={{ backgroundImage: `url(${Background})`, paddingLeft: "500px", paddingTop: "100px", paddingBottom: "100px" }}>
+            <div class="container-fluid" style={{ backgroundImage: `url(${Background})`, paddingLeft: "35%", paddingTop: "100px", paddingBottom: "100px" }}>
                 <div class="row main-content bg-success text-center">
 
                     <div style={{ backgroundColor: "#5b5ac7", borderRadius: "20px" }} >

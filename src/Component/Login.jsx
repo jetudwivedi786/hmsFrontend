@@ -107,7 +107,7 @@ const Login = () => {
         <>
             <Header />
             <Navbar2 />
-            <div class="container-fluid" style={{ paddingLeft: "500px", paddingTop: "100px", paddingBottom: "100px", backgroundImage: `url(${Background})` }}>
+            <div class="container-fluid" style={{ paddingLeft: "35%", paddingTop: "100px", paddingBottom: "100px", backgroundImage: `url(${Background})` }}>
                 <div class="row main-content bg-success text-center">
                     <div class="col-md-4 text-center company__info">
                         <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>

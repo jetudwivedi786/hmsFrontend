@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from "axios"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Header from '../../HomePageComponents/Header'
 import ReceptionistNav from '../../HomePageComponents/ReceptionistNav'
 
@@ -89,6 +89,8 @@ const MakeReservation = () => {
                         <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/payment" target="_new">Click here Payment </a> : <a href="http://localhost:3000/payment" target="_new">Click here Payment </a>}
 
                     <button class="btn mt-1" type='submit' onClick={updatedata} >Add Reservation</button>
+                    <Link to="/razorpay"><h6>Pay with razorpay</h6></Link>
+
 
                 </form>
             </div>;
