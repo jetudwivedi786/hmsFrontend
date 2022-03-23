@@ -89,9 +89,9 @@ const MakeReservation = () => {
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="date" name="checkOutDate" id="checkOutDate" placeholder='checkOutDate' onChange={inputEvent} value={input.checkOutDate} /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="status" id="status" placeholder='status' onChange={inputEvent} value={input.status} /> </div>
                     {/* <button class="btn mt-1" type="submit" onClick={showdata}>Post</button> */}
-                    {((input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
+                    {/* {((input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
                         <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/payment" target="_new">Click here for dummy Payment </a> : <a href="http://localhost:3000/payment" target="_new">Click here for dummy Payment </a>}
-                    a <h6>or</h6>
+                    a <h6>or</h6> */}
                     {((input.status) && (input.checkOutDate) && (input.checkInDate) && (input.noOfAdult) && (input.noOfChildren) && (input.roomNo)) === "" ?
                         <a style={{ pointerEvents: "none", color: "black" }} href="http://localhost:3000/razorpay" target="_new">Pay With Razorpay </a> : <a href="http://localhost:3000/razorpay" target="_new">Pay With Razorpay </a>}
 

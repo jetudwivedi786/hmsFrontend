@@ -65,7 +65,12 @@ const RazorPay = () => {
         console.log(response.razorpay_payment_id)
         // let id = response.razorpay_payment_id;
         // setInput({ ...input, });
-        addpay(change);
+        addpay({
+            amount: change.amount,
+            orderId: change.orderId,
+
+            txId: response.razorpay_payment_id
+        });
         console.log(change)
     }
     const addData = (event) => {
