@@ -21,7 +21,9 @@ const Navbar2 = () => {
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
+                        <div class="nav-item">
+                            <Link class="nav-link active " to='/about' tabindex="-1" >About</Link>
+                        </div>
                         <Marquee pauseOnHover="true" speed="70" ><h5 style={{ color: "white" }}>Welcome to HMS</h5></Marquee>
 
                         <div class="nav navbar-right" ><Link class="nav-link active " to='/' tabindex="-1"><h6>Login</h6></Link></div>
