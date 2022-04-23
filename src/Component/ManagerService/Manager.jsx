@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../HomePageComponents/Footer'
 import Header from '../HomePageComponents/Header'
-import Navbar from '../HomePageComponents/Navbar'
+import ManagerNav from "../HomePageComponents/ManagerNav"
 const Manager = () => {
     return (
         <>
             <Header />
-            <Navbar />
+            <ManagerNav />
 
             <div style={{ width: "100%", backgroundColor: "#66a8b8", height: "400px", textAlign: "center" }}>
 

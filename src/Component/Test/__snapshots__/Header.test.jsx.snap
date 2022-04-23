@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#912e2e",
+    }
+  }
+>
+  <h1>
+    <img
+      src="logo2.png"
+      style={
+        Object {
+          "borderRadius": 70,
+          "height": 140,
+          "width": 140,
+        }
+      }
+    />
+    <span
+      style={
+        Object {
+          "color": "white",
+          "fontFamily": "Sansita Swashed",
+          "fontSize": "50px",
+          "fontWeight": "bold",
+          "paddingLeft": "10%",
+        }
+      }
+    >
+       Hotel Management System
+    </span>
+  </h1>
+</div>
+`;

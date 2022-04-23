@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
+import Header from '../../HomePageComponents/Header';
+import ManagerNav from '../../HomePageComponents/ManagerNav';
 
 const PostRoom = () => {
     const [input, setInput] = useState({
@@ -27,25 +29,37 @@ const PostRoom = () => {
 
         });
     };
-    const showdata = (event) => {
+    // const showdata = (event) => {
+    //     event.preventDefault();
+
+    //     try {
+    //         axios.post("/manageRoom/addrooms", {
+    //             roomnumber: input.roomnumber,
+    //             roomprice: input.roomprice,
+    //             roomtype: input.roomtype,
+    //             roomstatus: input.roomstatus,
+    //         })
+    //             .then(response => {
+    //                 console.log(response.data);
+    //                 alert("uploaded")
+
+    //             })
+    //     }
+    //     catch (error) {
+    //         console.log("error is", error)
+    //     };
+
+    // }
+    const showdata = async (event) => {
         event.preventDefault();
-
-        try {
-            axios.post("/manageRoom/addrooms", {
-                roomnumber: input.roomnumber,
-                roomprice: input.roomprice,
-                roomtype: input.roomtype,
-                roomstatus: input.roomstatus,
-            })
-                .then(response => {
-                    console.log(response.data);
-                    alert("uploaded")
-
-                })
-        }
-        catch (error) {
-            console.log("error is", error)
-        };
+        let res = await addData({
+            roomnumber: input.roomnumber,
+            roomprice: input.roomprice,
+            roomtype: input.roomtype,
+            roomstatus: input.roomstatus,
+        });
+        console.log(res.data)
+        setInput(res.data)
 
     }
     // ..............................................................
@@ -75,6 +89,8 @@ const PostRoom = () => {
 
     return (
         <>
+            <Header />
+            <ManagerNav />
 
             <div class="text-center mt-4 name"> <h1>Post and Update Staff Data</h1></div>
 
@@ -85,7 +101,7 @@ const PostRoom = () => {
                 <div class="text-center mt-4 name"> Add/Update </div>
                 <form class="p-3 mt-3">
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="roomnumber" id="roomnumber" placeholder='roomnumber' onChange={inputEvent} value={input.roomnumber} required /> </div>
-                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="roomprice" id="roomprice" placeholder='Mobile roomprice' onChange={inputEvent} value={input.roomprice} required /> </div>
+                    <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="roomprice" id="roomprice" placeholder=' roomprice' onChange={inputEvent} value={input.roomprice} required /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="roomtype" id="roomtype" placeholder='roomtype' onChange={inputEvent} value={input.roomtype} required /> </div>
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="roomstatus" id="roomstatus" placeholder='roomstatus' onChange={inputEvent} value={input.roomstatus} required /> </div>
 
@@ -102,3 +118,8 @@ const PostRoom = () => {
 }
 
 export default PostRoom
+export const addData = async (data) => {
+
+    return axios.post("/manageRoom/addrooms", data);
+
+}

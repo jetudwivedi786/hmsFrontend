@@ -18,7 +18,7 @@ const Owner = () => {
                     <tbody>
                         <tr>
 
-                            <th><h1 class="animate__animated animate__slideInLeft">Departments</h1></th>
+                            <th><h1 class="animate__animated animate__slideInLeft">Departments</h1><hr /></th>
 
 
                         </tr>
@@ -30,6 +30,16 @@ const Owner = () => {
                         </tr>
                         <tr>
                             <th><h4><Link to="/owner/department" style={{ textDecoration: "none", color: "green" }}> Post and Update Departments</Link></h4></th>
+
+                        </tr>
+                        <tr>
+
+                            <th><h1 class="animate__animated animate__slideInLeft">All Report</h1><hr /></th>
+
+
+                        </tr>
+                        <tr>
+                            <th><h4><Link to="/owner/report" style={{ textDecoration: "none", color: "green" }}> View report</Link></h4></th>
 
                         </tr>
 

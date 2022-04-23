@@ -21,31 +21,70 @@ import PostGuest from './Component/ReceptionistService/Guest/PostGuest';
 import AvalableRooms from './Component/ReceptionistService/Guest/AvalableRooms';
 import MakeReservation from './Component/ReceptionistService/Reservation/MakeReservation';
 import GetReservation from './Component/ReceptionistService/Reservation/GetReservation';
+import ErrorPage from './Component/ErrorPage';
+import Payment from './Component/Payment/Payment';
+import Report from './Component/OwnerService/Report';
+import RazorPay from './Component/Payment/RazorPay';
+import { ProtectedRoute } from './Protect';
+import Navbar from './Component/HomePageComponents/Navbar';
+import ManagerNav from './Component/HomePageComponents/ManagerNav';
+import Navbar2 from './Component/HomePageComponents/Navbar2';
+import ReceptionistNav from './Component/HomePageComponents/ReceptionistNav';
 const App = () => {
+
+
     return (
         <>
 
+
+
             <Routes>
-                <Route path='/register' element={<Registration />} />
-                <Route exact path='/' element={<Home />} />
+                {/* {localStorage.getItem("jwt") ? <Route exact path='/owner' element={<Owner />} /> : null} */}
+                //////allowed to owner only
+                <Route element={<ProtectedRoute allowedRole={"[owner]"} />}>
+                    <Route path='/owner' element={<Owner />} />
+                    <Route path='/owner/getDepartments' element={<ShowDepartments />} />
+                    <Route path='/owner/department' element={<PostDepartment />} />
+                    <Route exact path='/owner/report' element={<Report />} />
+
+
+                </Route>
+                //////allowed to manager only
+                <Route element={<ProtectedRoute allowedRole={"[manager]"} />}>
+                    <Route path='/manager' element={<Manager />} />
+                    <Route path='/manager/getStaff' element={<ShowStaff />} />
+                    <Route path='/manager/poststaffdata' element={<PostStaffData />} />
+                    <Route path='/manager/getrooms' element={<ShowRooms />} />
+                    <Route path='/manager/postrooms' element={<PostRoom />} />
+                    <Route path='/manager/getInventory' element={<ShowInventory />} />
+
+                    <Route path='/manager/postInventory' element={<PostInventry />} />
+
+                </Route>
+                ////////////////allowed to receptionist only
+                <Route element={<ProtectedRoute allowedRole={"[receptionist]"} />}>
+                    <Route path='/receptionist' element={<Receptionist />} />
+
+                    <Route path='/receptionist/getGuest' element={<ShowGuest />} />
+                    <Route path='/receptionist/postGuest' element={<PostGuest />} />
+                    <Route path='/receptionist/availableRooms' element={<AvalableRooms />} />
+                    <Route path='/receptionist/reservation' element={<MakeReservation />} />
+                    <Route path='/receptionist/getReservation' element={<GetReservation />} />
+                    <Route path='/razorpay' element={<RazorPay />} />
+
+                </Route>
+
+///////////public url
+                <Route exact path='/error' element={<ErrorPage />} />
+                <Route exact path='/register' element={<Registration />} />
+                <Route exact path='/home' element={<Home />} />
                 <Route path='/about' element={<About />} />
-                <Route path='/owner' element={<Owner />} />
-                <Route path='/receptionist' element={<Receptionist />} />
-                <Route path='/manager' element={<Manager />} />
-                <Route path='/manager/getStaff' element={<ShowStaff />} />
-                <Route path='/manager/poststaffdata' element={<PostStaffData />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/manager/getrooms' element={<ShowRooms />} />
-                <Route path='/manager/postrooms' element={<PostRoom />} />
-                <Route path='/manager/getInventory' element={<ShowInventory />} />
-                <Route path='/manager/postInventory' element={<PostInventry />} />
-                <Route path='/owner/getDepartments' element={<ShowDepartments />} />
-                <Route path='/owner/department' element={<PostDepartment />} />
-                <Route path='/receptionist/getGuest' element={<ShowGuest />} />
-                <Route path='/receptionist/postGuest' element={<PostGuest />} />
-                <Route path='/receptionist/availableRooms' element={<AvalableRooms />} />
-                <Route path='/receptionist/reservation' element={<MakeReservation />} />
-                <Route path='/receptionist/getReservation' element={<GetReservation />} />
+                <Route path='/' element={<Login />} />
+                <Route path='/payment' element={<Payment />} />
+
+
+
+
 
 
 

@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import "../Staff/PostStaffData.css";
+import Header from '../../HomePageComponents/Header';
+import ManagerNav from '../../HomePageComponents/ManagerNav';
 
 const PostStaffData = () => {
     const [input, setInput] = useState({
@@ -117,6 +119,8 @@ const PostStaffData = () => {
 
     return (
         <>
+            <Header />
+            <ManagerNav />
 
             <div class="text-center mt-4 name"> <h1>Post and Update Staff Data</h1></div>
 

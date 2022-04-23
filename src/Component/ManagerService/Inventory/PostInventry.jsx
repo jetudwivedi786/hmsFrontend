@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Header from '../../HomePageComponents/Header'
+import ManagerNav from '../../HomePageComponents/ManagerNav'
 
 const PostInventry = () => {
     const [input, setInput] = useState({
@@ -83,6 +85,8 @@ const PostInventry = () => {
 
     return (
         <>
+            <Header />
+            <ManagerNav />
             <div class="text-center mt-4 name"> <h1>Post and Update Inventory</h1></div>
             <div class="wrapper">
                 <div class="text-center mt-4 name"> Add/Update </div>

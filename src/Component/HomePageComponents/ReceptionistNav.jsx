@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import LogoutIcon from '@mui/icons-material/Logout';
+const ReceptionistNav = () => {
+    const nav = useNavigate();
 
-const Navbar = () => {
 
-
-    const Logout = () => { if (typeof window !== "undefined") { localStorage.removeItem("jwt"); } };
+    const Logout = () => { if (typeof window !== "undefined") { localStorage.removeItem("jwt"); nav("/") } };
 
 
     return (
@@ -17,18 +19,14 @@ const Navbar = () => {
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav p-lg-2">
-
                                 <li class="nav-item">
-                                    <Link to="/owner" class="nav-link active">Owner</Link>
+                                    <Link to="/receptionist" class="nav-link active" aria-current="page" href="#">Receptionist</Link>
                                 </li>
-
 
                                 {/* <li class="nav-item">
                                     <Link class="nav-link active " to='/about' tabindex="-1" >About</Link>
                                 </li> */}
-                                {/* <li class="nav-item nav navbar-">
-                                <Link class="nav-link active" to='/login' tabindex="-1" >Login</Link>
-                            </li> */}
+
 
                             </ul>
 
@@ -36,7 +34,7 @@ const Navbar = () => {
                         <div class="nav navbar-right" >
 
                             {localStorage.getItem("jwt") && (<ul class="navbar-nav  mb-2 mb-lg-0"> <li className="nav-item">
-                                <Link to="/" tag="h6" onClick={Logout} style={{ color: "white", cursor: "pointer" }} >Logout </Link></li></ul>)}
+                                <h6 onClick={Logout} style={{ color: "white", cursor: "pointer" }} >Logout </h6></li></ul>)}
 
                         </div>
                     </div>
@@ -47,4 +45,5 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+
+export default ReceptionistNav

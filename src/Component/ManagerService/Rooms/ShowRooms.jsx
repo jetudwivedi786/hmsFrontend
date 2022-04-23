@@ -1,10 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../../HomePageComponents/Header';
+import ManagerNav from '../../HomePageComponents/ManagerNav';
 
 
 const ShowRooms = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
 
     const getroom = () => {
 
@@ -13,6 +17,7 @@ const ShowRooms = () => {
                 .then(response => {
                     console.log(response.data);
                     setData(response.data)
+                    setLoading(true);
                 })
         }
         catch (error) {
@@ -43,45 +48,43 @@ const ShowRooms = () => {
 
     return (
         <>
+            <Header />
+            <ManagerNav />
             <center><h1>All room information is here</h1></center><hr />
-            <div style={{ backgroundColor: "#552f2f", width: "90%", marginLeft: "4%" }}>
-                <table class="table table-white" style={{ textAlign: "center" }}>
-                    <tr style={{ border: "2px solid gray", color: "white" }}>
-                        <td><h5>Index</h5></td>
-                        <td><h5>Room no. </h5></td>
-                        <td><h5>Room price</h5></td>
-                        <td><h5>Room type</h5></td>
-                        <td><h5>Room status</h5></td>
-                        <td><h5>Operation</h5></td>
-                    </tr>
+            <div >
+
+                <div>
+
+                    {loading ? data.map((det, index) =>
 
 
+                        <div className='cards'>
 
-                    {data.map((det, index) =>
+                            <div className='card_info'>
+                                <h6 className='card_category'> Room no  {det.roomnumber}</h6>
+                                <h6 className='card_category'>  Room price  {det.roomprice}</h6>
+                                <h6 className='card_category'>  Room type {det.roomtype}</h6>
+                                <h6 className='card_category'> Room status {det.roomstatus}</h6>
 
-                        <tr key={det.roomnumber} style={{ border: "2px solid gray", color: "white" }}>
+                                <center> <button onClick={() => { deleteroom(det.roomnumber) }} style={{ backgroundColor: "#dbd596", color: "red" }} > Delete</button></center>
 
-                            <td>{index + 1}</td>
-                            <td>{det.roomnumber}</td>
-                            <td>{det.roomprice}</td>
-                            <td>{det.roomtype}</td>
-                            <td>{det.roomstatus}</td>
+                            </div   >
 
-                            <td><button onClick={() => deleteroom(det.roomnumber)} style={{ color: "red", backgroundColor: "black" }}>delete</button></td>
-                        </tr>,
-
-
-
-                    )}
+                        </div>
 
 
-
-
-
-                </table>
-
+                    ) : <center><div class="spinner-border text-danger" role="status">
+                        <span class="sr-only"></span>
+                    </div></center>}:
+                </div>
 
             </div>
+
+
+
+
+
+
 
 
 

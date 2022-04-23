@@ -1,6 +1,8 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from "axios"
+import Header from '../../HomePageComponents/Header';
+import ReceptionistNav from '../../HomePageComponents/ReceptionistNav';
 
 const PostGuest = () => {
     const [input, setInput] = useState({
@@ -89,13 +91,15 @@ const PostGuest = () => {
 
     return (
         <>
+            <Header />
+            <ReceptionistNav />
 
             <div class="text-center mt-4 name"> <h1>Post and Update Staff Data</h1></div>
 
             {/* Basic form here */}
 
 
-            <div class="wrapper">
+            <div class="wrapper" >
                 <div class="text-center mt-4 name"> Add/Update </div>
                 <form class="p-3 mt-3">
                     <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>  <input type="text" name="id" id="id" placeholder='id' onChange={inputEvent} value={input.id} required /> </div>

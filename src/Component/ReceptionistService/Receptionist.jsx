@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import Footer from '../HomePageComponents/Footer'
 import Header from '../HomePageComponents/Header'
 import Navbar from '../HomePageComponents/Navbar'
+import ReceptionistNav from '../HomePageComponents/ReceptionistNav'
 
 const Receptionist = () => {
     return (
         <>
             <Header />
-            <Navbar />
+            <ReceptionistNav />
 
             <div style={{ width: "100%", backgroundColor: "#66a8b8", height: "400px", textAlign: "center", }}>
 
@@ -16,17 +17,10 @@ const Receptionist = () => {
 
                 <div >
 
-
-
-
-
                     <div style={{ float: "left", width: "33%" }}>
                         <center><h1 class="animate__animated animate__zoomIn">Guest</h1></center>
                         <h4><Link to="/receptionist/getGuest" style={{ textDecoration: "none", color: "green" }}> Show and Delete Guests</Link></h4>
                         <h4><Link to="/receptionist/postGuest" style={{ textDecoration: "none", color: "green" }}> Post and Update Guests</Link></h4>
-
-
-
 
                     </div>
                     <div style={{ float: "left", width: "33%" }}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const ManagerNav = () => {
 
 
     const Logout = () => { if (typeof window !== "undefined") { localStorage.removeItem("jwt"); } };
@@ -17,11 +17,9 @@ const Navbar = () => {
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav p-lg-2">
-
                                 <li class="nav-item">
-                                    <Link to="/owner" class="nav-link active">Owner</Link>
+                                    <Link to="/manager" class="nav-link active" aria-current="page" href="#">Manager</Link>
                                 </li>
-
 
                                 {/* <li class="nav-item">
                                     <Link class="nav-link active " to='/about' tabindex="-1" >About</Link>
@@ -47,4 +45,5 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+
+export default ManagerNav

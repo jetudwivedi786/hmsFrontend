@@ -2,12 +2,13 @@ import React from 'react'
 import Footer from './HomePageComponents/Footer'
 import Header from './HomePageComponents/Header'
 import Navbar from './HomePageComponents/Navbar'
+import Navbar2 from './HomePageComponents/Navbar2'
 
 const About = () => {
     return (
         <>
             <Header />
-            <Navbar />
+            <Navbar2 />
 
             <div style={{ width: "100%", backgroundColor: "#66a8b8", height: "400px" }}>
                 <p> <center><span style={{ fontSize: "40px" }}>H</span>MS Hotel is a perfect venue for a comfortable stay as well as business meetings, conferences and trainings.</center>

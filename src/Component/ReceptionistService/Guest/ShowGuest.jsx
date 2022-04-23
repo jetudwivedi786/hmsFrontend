@@ -1,10 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../../HomePageComponents/Header';
+import ReceptionistNav from '../../HomePageComponents/ReceptionistNav';
 
 
 const ShowGuest = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const getGuest = () => {
 
@@ -13,6 +16,7 @@ const ShowGuest = () => {
                 .then(response => {
                     console.log(response.data);
                     setData(response.data)
+                    setLoading(true)
                 })
         }
         catch (error) {
@@ -44,6 +48,8 @@ const ShowGuest = () => {
 
     return (
         <>
+            <Header />
+            <ReceptionistNav />
             <center><h1>All Guests information is here</h1></center><hr />
             <div style={{ backgroundColor: "#552f2f", width: "90%", marginLeft: "4%" }}>
                 <table class="table table-white" style={{ textAlign: "center" }}>
@@ -64,7 +70,7 @@ const ShowGuest = () => {
 
 
 
-                    {data.map((det, index) =>
+                    {loading ? data.map((det, index) =>
 
                         <tr key={det.id} style={{ border: "2px solid gray", color: "white" }}>
 
@@ -87,7 +93,9 @@ const ShowGuest = () => {
 
 
 
-                    )}
+                    ) : <div class="spinner-border text-danger" role="status">
+                        <span class="sr-only"></span>
+                    </div>}
 
 
 
