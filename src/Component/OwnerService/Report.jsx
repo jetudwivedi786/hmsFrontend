@@ -50,7 +50,7 @@ const Report = () => {
 
         try {
 
-            axios.get("/manageDepartment/getRoomOfManager")
+            axios.get("/manageRoom/getrooms")
                 .then(response => {
                     console.log(response.data);
                     setRepo(response.data)

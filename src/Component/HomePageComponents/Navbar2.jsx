@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
-import LockSharpIcon from '@mui/icons-material/LockSharp';
 import Marquee from "react-fast-marquee";
 
 
 const Navbar2 = () => {
-    const nav = useNavigate();
 
 
 

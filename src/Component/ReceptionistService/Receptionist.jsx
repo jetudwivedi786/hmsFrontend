@@ -17,10 +17,6 @@ const Receptionist = () => {
 
                 <div >
 
-
-
-
-
                     <div style={{ float: "left", width: "33%" }}>
                         <center><h1 class="animate__animated animate__zoomIn">Guest</h1></center>
                         <h4><Link to="/receptionist/getGuest" style={{ textDecoration: "none", color: "green" }}> Show and Delete Guests</Link></h4>

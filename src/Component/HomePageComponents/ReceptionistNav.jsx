@@ -23,9 +23,9 @@ const ReceptionistNav = () => {
                                     <Link to="/receptionist" class="nav-link active" aria-current="page" href="#">Receptionist</Link>
                                 </li>
 
-                                <li class="nav-item">
+                                {/* <li class="nav-item">
                                     <Link class="nav-link active " to='/about' tabindex="-1" >About</Link>
-                                </li>
+                                </li> */}
 
 
                             </ul>

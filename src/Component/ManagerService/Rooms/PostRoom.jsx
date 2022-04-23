@@ -29,25 +29,37 @@ const PostRoom = () => {
 
         });
     };
-    const showdata = (event) => {
+    // const showdata = (event) => {
+    //     event.preventDefault();
+
+    //     try {
+    //         axios.post("/manageRoom/addrooms", {
+    //             roomnumber: input.roomnumber,
+    //             roomprice: input.roomprice,
+    //             roomtype: input.roomtype,
+    //             roomstatus: input.roomstatus,
+    //         })
+    //             .then(response => {
+    //                 console.log(response.data);
+    //                 alert("uploaded")
+
+    //             })
+    //     }
+    //     catch (error) {
+    //         console.log("error is", error)
+    //     };
+
+    // }
+    const showdata = async (event) => {
         event.preventDefault();
-
-        try {
-            axios.post("/manageRoom/addrooms", {
-                roomnumber: input.roomnumber,
-                roomprice: input.roomprice,
-                roomtype: input.roomtype,
-                roomstatus: input.roomstatus,
-            })
-                .then(response => {
-                    console.log(response.data);
-                    alert("uploaded")
-
-                })
-        }
-        catch (error) {
-            console.log("error is", error)
-        };
+        let res = await addData({
+            roomnumber: input.roomnumber,
+            roomprice: input.roomprice,
+            roomtype: input.roomtype,
+            roomstatus: input.roomstatus,
+        });
+        console.log(res.data)
+        setInput(res.data)
 
     }
     // ..............................................................
@@ -106,3 +118,8 @@ const PostRoom = () => {
 }
 
 export default PostRoom
+export const addData = async (data) => {
+
+    return axios.post("/manageRoom/addrooms", data);
+
+}

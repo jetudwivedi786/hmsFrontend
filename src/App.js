@@ -24,11 +24,13 @@ import GetReservation from './Component/ReceptionistService/Reservation/GetReser
 import ErrorPage from './Component/ErrorPage';
 import Payment from './Component/Payment/Payment';
 import Report from './Component/OwnerService/Report';
-import { useNavigate } from 'react-router-dom';
 import RazorPay from './Component/Payment/RazorPay';
 import { ProtectedRoute } from './Protect';
+import Navbar from './Component/HomePageComponents/Navbar';
+import ManagerNav from './Component/HomePageComponents/ManagerNav';
+import Navbar2 from './Component/HomePageComponents/Navbar2';
+import ReceptionistNav from './Component/HomePageComponents/ReceptionistNav';
 const App = () => {
-    const nav = useNavigate();
 
 
     return (
@@ -38,6 +40,7 @@ const App = () => {
 
             <Routes>
                 {/* {localStorage.getItem("jwt") ? <Route exact path='/owner' element={<Owner />} /> : null} */}
+                //////allowed to owner only
                 <Route element={<ProtectedRoute allowedRole={"[owner]"} />}>
                     <Route path='/owner' element={<Owner />} />
                     <Route path='/owner/getDepartments' element={<ShowDepartments />} />
@@ -46,6 +49,7 @@ const App = () => {
 
 
                 </Route>
+                //////allowed to manager only
                 <Route element={<ProtectedRoute allowedRole={"[manager]"} />}>
                     <Route path='/manager' element={<Manager />} />
                     <Route path='/manager/getStaff' element={<ShowStaff />} />
@@ -57,6 +61,7 @@ const App = () => {
                     <Route path='/manager/postInventory' element={<PostInventry />} />
 
                 </Route>
+                ////////////////allowed to receptionist only
                 <Route element={<ProtectedRoute allowedRole={"[receptionist]"} />}>
                     <Route path='/receptionist' element={<Receptionist />} />
 
@@ -69,13 +74,15 @@ const App = () => {
 
                 </Route>
 
-
+///////////public url
                 <Route exact path='/error' element={<ErrorPage />} />
                 <Route exact path='/register' element={<Registration />} />
                 <Route exact path='/home' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/' element={<Login />} />
                 <Route path='/payment' element={<Payment />} />
+
+
 
 
 

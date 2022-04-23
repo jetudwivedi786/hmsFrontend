@@ -61,13 +61,12 @@ const ShowRooms = () => {
                         <div className='cards'>
 
                             <div className='card_info'>
-                                <h6 className='card_category'> Room no.:- {det.roomnumber}</h6>
-                                <h6 className='card_category'>  Room price:- {det.roomprice}</h6>
-                                <h6 className='card_category'>  Room type:- {det.roomtype}</h6>
-                                <h6 className='card_category'>  Room status:- {det.roomtype}</h6>
-                                <h6 className='card_category'> Room status:-{det.roomstatus}</h6>
+                                <h6 className='card_category'> Room no  {det.roomnumber}</h6>
+                                <h6 className='card_category'>  Room price  {det.roomprice}</h6>
+                                <h6 className='card_category'>  Room type {det.roomtype}</h6>
+                                <h6 className='card_category'> Room status {det.roomstatus}</h6>
 
-                                <center> <button onClick={() => { deleteroom(det.id) }} style={{ backgroundColor: "#dbd596", color: "red" }} > Delete</button></center>
+                                <center> <button onClick={() => { deleteroom(det.roomnumber) }} style={{ backgroundColor: "#dbd596", color: "red" }} > Delete</button></center>
 
                             </div   >
 

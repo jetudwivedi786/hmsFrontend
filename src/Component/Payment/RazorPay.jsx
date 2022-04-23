@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { toast } from "react-toastify"
+import swal from 'sweetalert';
+
+
 
 const RazorPay = () => {
 
@@ -34,7 +38,10 @@ const RazorPay = () => {
 
 
 
-                    })) { alert(change.amount + "Check Payment status with your order Id") }
+                    })) {
+                swal("Payment Success!", "Congratulations", "success");
+
+            }
         }
         catch (error) {
             console.log("error is", error)

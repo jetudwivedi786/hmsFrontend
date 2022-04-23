@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Header from '../HomePageComponents/Header'
 import Navbar from '../HomePageComponents/Navbar'
+import { toast } from "react-toastify"
+
 
 const PostDepartment = () => {
     const [input, setInput] = useState({
@@ -30,18 +32,34 @@ const PostDepartment = () => {
         event.preventDefault();
 
         try {
-            if (
-                axios.post("/manageDepartment/addDepartment", {
-                    id: input.id,
-                    departmentName: input.departmentName,
-                    noOfMember: input.noOfMember,
+            console.log(input)
+            axios.post("/manageDepartment/addDepartment", {
+                id: input.id,
+                departmentName: input.departmentName,
+                noOfMember: input.noOfMember,
 
-                })
-                    .then(response => {
-                        console.log(response.data);
+            })
+                .then(response => {
+                    console.log(response.data);
+                    alert("uploaded")
 
 
-                    })) { alert("uploaded") }
+                }, error => {
+                    error.response.data.map((error) =>
+
+                        toast.error(`${error}`, {
+
+                            position: "top-center",
+
+                        })
+
+                    );
+
+
+                }
+
+                )
+
         }
         catch (error) {
             console.log("error is", error)
@@ -53,17 +71,26 @@ const PostDepartment = () => {
         event.preventDefault();
 
         try {
-            if (
-                axios.put("/manageDepartment/updateDepartment", {
-                    id: input.id,
-                    departmentName: input.departmentName,
-                    noOfMember: input.noOfMember,
+
+            axios.put("/manageDepartment/updateDepartment", {
+                id: input.id,
+                departmentName: input.departmentName,
+                noOfMember: input.noOfMember,
+            })
+                .then(response => {
+                    console.log(response);
+                    alert("updated")
+
+
+                }, error => {
+                    error.response.data.map((error) =>
+
+                        toast.error(`${error}`, {
+
+                            position: "top-center",
+
+                        }))
                 })
-                    .then(response => {
-                        console.log(response);
-
-
-                    })) { alert("Data updated") }
         }
         catch (error) {
             console.log("error is", error)

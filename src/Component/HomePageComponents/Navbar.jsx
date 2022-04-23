@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
-import LogoutIcon from '@mui/icons-material/Logout';
+
 const Navbar = () => {
-    const nav = useNavigate();
 
 
-    const Logout = () => { if (typeof window !== "undefined") { localStorage.removeItem("jwt"); nav("/") } };
+    const Logout = () => { if (typeof window !== "undefined") { localStorage.removeItem("jwt"); } };
 
 
     return (
@@ -38,7 +36,7 @@ const Navbar = () => {
                         <div class="nav navbar-right" >
 
                             {localStorage.getItem("jwt") && (<ul class="navbar-nav  mb-2 mb-lg-0"> <li className="nav-item">
-                                <h6 onClick={Logout} style={{ color: "white", cursor: "pointer" }} >Logout </h6></li></ul>)}
+                                <Link to="/" tag="h6" onClick={Logout} style={{ color: "white", cursor: "pointer" }} >Logout </Link></li></ul>)}
 
                         </div>
                     </div>

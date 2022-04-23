@@ -1,7 +1,7 @@
 .cards{
     float: left;
     background-color: wheat;
-    width: 270px;
+    width: 250px;
     box-shadow: 2px 4px 5px rgb(138, 135, 135);
     margin-top: 50px;
     margin-left: 45px;
@@ -13,4 +13,11 @@
 
 .card_info{
     float: left;
+}
+
+.nav-link .active{
+    border-bottom: 2px solid red;
+}
+.nav-item{
+    color: aqua;
 }

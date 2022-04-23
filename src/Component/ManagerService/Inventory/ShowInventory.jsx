@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Table } from 'react-bootstrap'
 import Header from '../../HomePageComponents/Header'
 import ManagerNav from '../../HomePageComponents/ManagerNav'
+import { toast } from 'react-toastify'
 
 const ShowInventory = () => {
 

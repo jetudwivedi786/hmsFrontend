@@ -3,10 +3,13 @@ import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import "./Login.css"
+import { toast } from "react-toastify"
+
 import Header from './HomePageComponents/Header';
 import Footer from './HomePageComponents/Footer';
 import Navbar2 from './HomePageComponents/Navbar2';
 import Background from "../../src/1.jpg"
+
 const Registration = () => {
 
     var auth = JSON.stringify(localStorage.getItem("auth"))
@@ -46,10 +49,30 @@ const Registration = () => {
                     localStorage.setItem("auth", JSON.stringify(response.data.response))
                     nav("/")
 
+                }, error => {
+                    error.response.data.map((error) =>
+
+                        toast.error(`${error}`, {
+
+                            position: "top-center",
+
+                        })
+
+                    );
+
+
                 })
         }
         catch (error) {
-            console.log("error is", error)
+            error.response.data.map((error) =>
+
+                toast.error(`${error}`, {
+
+                    position: "top-center",
+
+                })
+
+            );
         };
     }
     return (

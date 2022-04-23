@@ -43,23 +43,24 @@ const MakeReservation = () => {
         console.log(a)
 
         try {
-            if (
-                axios.post("/reservation/addReservation", {
-                    roomNo: input.roomNo,
-                    noOfChildren: input.noOfChildren,
-                    noOfAdult: input.noOfAdult,
-                    checkInDate: input.checkInDate,
-                    checkOutDate: input.checkOutDate,
-                    status: input.status,
-                    numberOfNight: input.numberOfNight,
-                    // paymentDetails:{orderId,amount,paymentStatus,txId}
+
+            axios.post("/reservation/addReservation", {
+                roomNo: input.roomNo,
+                noOfChildren: input.noOfChildren,
+                noOfAdult: input.noOfAdult,
+                checkInDate: input.checkInDate,
+                checkOutDate: input.checkOutDate,
+                status: input.status,
+                numberOfNight: input.numberOfNight,
+                // paymentDetails:{orderId,amount,paymentStatus,txId}
+
+            })
+                .then(response => {
+                    console.log(response);
+                    alert("Reserved successfully");
+                    nav("/receptionist/getReservation")
 
                 })
-                    .then(response => {
-                        console.log(response);
-                        nav("/receptionist/getReservation")
-
-                    })) { alert("Data updated") }
         }
         catch (error) {
             console.log("error is", error)

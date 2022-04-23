@@ -9,18 +9,25 @@ const ShowDepartments = () => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const getDepartment = () => {
-        try {
-            axios.get("/manageDepartment/getDepartment")
-                .then(response => {
-                    console.log(response.data);
-                    setData(response.data)
-                    setLoading(true);
-                })
-        }
-        catch (error) {
-            console.log(error)
-        };
+    // const getDepartment = () => {
+    //     try {
+    //         axios.get("/manageDepartment/getDepartment")
+    //             .then(response => {
+    //                 console.log(response.data);
+    //                 setData(response.data)
+    //                 setLoading(true);
+    //             })
+    //     }
+    //     catch (error) {
+    //         console.log(error)
+    //     };
+    // }
+    const getdata = async () => {
+        let res = await getDepartment();
+        console.log(res.data)
+        setData(res.data)
+        setLoading(true);
+
     }
 
     const deleteDepartment = (id) => {
@@ -30,7 +37,7 @@ const ShowDepartments = () => {
                 axios.delete(`/manageDepartment/deleteDepartment/${id}`)
                     .then(response => {
                         console.log(response);
-                        getDepartment();
+                        getdata();
 
 
                     })) { alert("Department id " + id + " is deleted") }
@@ -44,16 +51,14 @@ const ShowDepartments = () => {
 
     useEffect(() => {
 
-        getDepartment();
+        getdata();
 
 
     }, []);
     return (
         <>
             <Header />
-            <Navbar />
-
-
+            {/* <Navbar /> */}
 
             <div style={{ backgroundColor: "#d0e6f3", height: "500px" }}>
 
@@ -75,8 +80,8 @@ const ShowDepartments = () => {
 
                             <div className='card_info'>
                                 <h6 className='card_category'>  Department Id:- {detail.id}</h6>
-                                <h6 className='card_category'>  Department Id:- {detail.departmentName}</h6>
-                                <h6 className='card_category'>  Department Id:- {detail.noOfMember}</h6>
+                                <h6 className='card_category'>  Department Name:- {detail.departmentName}</h6>
+                                <h6 className='card_category'>  No. of member:- {detail.noOfMember}</h6>
                                 <center> <button onClick={() => { deleteDepartment(detail.id) }} style={{ backgroundColor: "#dbd596", color: "red" }} > Delete</button></center>
 
                             </div   >
@@ -95,3 +100,11 @@ const ShowDepartments = () => {
 }
 
 export default ShowDepartments
+
+export const getDepartment = async () => {
+
+    const res = await axios.get("/manageDepartment/getDepartment")
+    return res;
+
+
+}

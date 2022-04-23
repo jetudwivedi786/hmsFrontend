@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
-import { useState } from 'react'
+import { useState } from 'react';
 import Footer from '../../HomePageComponents/Footer';
 import Header from '../../HomePageComponents/Header';
 import ReceptionistNav from '../../HomePageComponents/ReceptionistNav';
@@ -41,7 +41,7 @@ const AvalableRooms = () => {
 
 
 
-            <div style={{ backgroundColor: "#d0e6f3", width: "100%%", height: "500px", padding: "10px" }}> <center><h1>AvalableRooms</h1></center><br />
+            <div style={{ backgroundColor: "#d0e6f3", width: "100%%", height: "500px", padding: "10px" }}> <center><h1>Available Rooms</h1></center><br />
 
                 <div>
 
@@ -51,7 +51,7 @@ const AvalableRooms = () => {
                         <div className='cards'>
 
                             <div className='card_info'>
-                                <h6 className='card_category'> Room no.:- {det.roomNo}</h6>
+                                <h6 className='card_category'> Room no  {det.roomNo}</h6>
 
                             </div   >
 
@@ -60,7 +60,7 @@ const AvalableRooms = () => {
 
                     ) : <center><div class="spinner-border text-danger" role="status">
                         <span class="sr-only"></span>
-                    </div></center>}:
+                    </div></center>}
                 </div>
 
             </div>
